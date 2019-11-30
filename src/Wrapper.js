@@ -4,25 +4,20 @@ class Wrapper {
       return str;
     }
 
-    // If substring contains empty space(s), break on the last one
-    const emptySpaceIndex = str.substring(0, colWidth).lastIndexOf(' ');
-    if (emptySpaceIndex !== -1) {
-      return `${str.substring(0, emptySpaceIndex)}\n${this.wrap(
-        str.substring(emptySpaceIndex + 1),
-        colWidth
-      )}`;
-      // New lines should not start with empty space
-    } else if (str.charAt(colWidth) === ' ') {
-      return `${str.substring(0, colWidth)}\n${this.wrap(
-        str.substring(colWidth + 1),
-        colWidth
-      )}`;
-    } else {
-      return `${str.substring(0, colWidth)}\n${this.wrap(
-        str.substring(colWidth),
-        colWidth
-      )}`;
-    }
+    const currentSection = str.substring(0, colWidth);
+    const hasEmptySpace = currentSection.includes(' ');
+    const charAfterColumnIsEmptySpace = str.charAt(colWidth) === ' ';
+
+    // If current section has empty space(s), break at the last one
+    const position = hasEmptySpace ? currentSection.lastIndexOf(' ') : colWidth;
+
+    // Insert a gap if current section has empty space(s) or next section starts with one
+    const gap = hasEmptySpace || charAfterColumnIsEmptySpace ? 1 : 0;
+
+    return `${str.substring(0, position)}\n${this.wrap(
+      str.substring(position + gap),
+      colWidth
+    )}`;
   }
 }
 

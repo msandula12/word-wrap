@@ -12,13 +12,13 @@ describe('Word Wrap', () => {
   it('should break words at column', () => {
     expect(WordWrap.wrap('abcdefghij', 3)).toBe('abc\ndef\nghi\nj');
   });
-  it('should break words at word boundary', () => {
+  it('should wrap at word boundary', () => {
     expect(WordWrap.wrap('Word word', 5)).toBe('Word\nword');
   });
   it('should break words after word boundary', () => {
     expect(WordWrap.wrap('Word word', 6)).toBe('Word\nword');
   });
-  it('should wrap before word boundary', () => {
+  it('should wrap well before word boundary', () => {
     expect(WordWrap.wrap('Word word', 3)).toBe('Wor\nd\nwor\nd');
   });
   it('should wrap just before word boundary', () => {
