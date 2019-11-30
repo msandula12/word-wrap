@@ -1,0 +1,14 @@
+{
+  "name": "word-wrap",
+  "version": "1.0.0",
+  "description": "Word wrap kata written in Node.js",
+  "main": "index.js",
+  "scripts": {
+    "test": "jasmine-node spec --autotest --watch . --color --verbose"
+  },
+  "author": "Mike Sandula",
+  "license": "MIT",
+  "devDependencies": {
+    "jasmine-node": "^3.0.0"
+  }
+}
