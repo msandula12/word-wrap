@@ -1,6 +1,9 @@
 const WordWrap = require('../src/Wrapper');
 
 describe('Word Wrap', () => {
+  it('should not wrap a non-string', () => {
+    expect(() => WordWrap.wrap(500)).toThrow();
+  });
   it('should return string unchanged if no column width is provided', () => {
     expect(WordWrap.wrap('Please leave me as I am!')).toBe(
       'Please leave me as I am!'

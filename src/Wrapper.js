@@ -1,5 +1,8 @@
 class Wrapper {
   static wrap(str, colWidth) {
+    if (typeof str !== 'string') {
+      throw new Error('Cannot wrap a non-string');
+    }
     if (typeof colWidth !== 'number' || str.length <= colWidth) {
       return str;
     }
