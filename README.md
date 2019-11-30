@@ -8,10 +8,18 @@ Like a word processor, break the line by replacing the last space in a line with
 
 From: http://codingdojo.org/kata/WordWrap/
 
-### Testing
+### Installation
 
-Run Jasmine tests
+1. Make sure [Node.js](https://nodejs.org/en/) is installed on your machine
+2. Clone the repository: `https://github.com/msandula12/word-wrap.git`
+3. Install dependencies:
 
 ```sh
-npm ru test
+npm install
+```
+
+4. Run Jasmine tests:
+
+```sh
+npm run test
 ```
